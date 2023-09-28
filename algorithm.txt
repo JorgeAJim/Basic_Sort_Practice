@@ -1,0 +1,76 @@
+Jorge Jimenez
+Course: CSCI24000
+Professor: Andrew Harris
+Date: 1/18/2022
+
+Goal: Use a bubble sort algorithm to sort an array of values in the correct numerical order from lowest to greatest. The swapping of values should be done by altering the array values' location in the memory,
+in other words, by swapping the address/location of the values.
+
+Inputs: The user does not provide any inputs. The program is responsible for passing the two parameter inputs for the provided swap() function given in the starter code. 
+
+Outputs: The program should output the list/array before any swapping occurs with the internal values. The program should print all the swaps that occur within the array. Finally, the program should
+print the array with all numerical values in order from lowest to greatest after compliting all the swaps.
+
+Steps:
+
+Notes: In order to swap the two values, that are inside the array, using pointers, a third variable is needed to temporarly hold one of the address values.
+
+starter code:
+
+	#define:
+		
+		One thing is defined at the top of the program, within the given starter code, which is MAX that gets a value of 9.
+	
+	void functions: 
+		
+		Three void functions are given in the starter code. These functions are: printValues(), sort(), and swap(int*, int*). As given, the swap() function is expecting addresses to be given as parameters.
+
+	values[]:
+
+		An array of numerical values, between 1-9, is given in the starter code. These numerical values aren't in the correct order from lowest to greatest.
+
+
+	main() function:
+	
+		The provided main function, from the starter code, contains the references to the prototype functions, which are also provided. The main() function shows in what order the prototype functions are being called 
+		upon, and which functions aren't called. The swap() prototype function isn't called in the main(), insinuating that it's called upon by another of the prototype functions. Looking at the provided algorithm,
+	 	the swap() will most likely be called in the sort() function.  
+
+printValues() function:
+
+	The printValues() function is a void type function. This means it won't return anything to the rest of the program. 
+	
+	The printValues() function is given the job of printing the values withing the values[] array, in their current order within the values[] array.
+
+	To print the array, a for loop is required, as there is no %? that is design to print the entire array. The for loop will use an integer variable, i, which will intergrate through all the array's indexes. As we know,
+	the array have 9 numerical values and we have a defined universal variable called MAX that holds the value 9. So, by using a for loop with the correct initializer, condition, and change mechanism, the for loop should
+	iterate 9 times.
+
+		Each time the for loop iterates, the current iteration should print the array value that is stored in the index with the same numerical value as the iteration cycle(which is stored in the i variable).
+
+sort() function:
+
+	The sort() function uses the provided "bubble sort" algorithm to do it's assign role, which is to determine if any two numerical values inside the values[] array aren't in numerical order from lowest to greatest.
+
+	The bubble sort algorithm works by using a nested loop. Using two different initializer variables, the same condition, and the same change mechanism, the loops should work together to make sure that every value, and 
+	its neighbor value, are compared.
+
+		The first loop runs 8 times, since by the second to last iteration the last value of the array should alreadt be the greatest numerical value. However, it seems that the first loop can run the full 9 times
+		without causing any changes to the end result, other than possibly taking up more computing power. What the first loop does is move the next greatest value to the it's appropiate ascending order. As by the
+		end of the first loop iteration, the second loop would've place the current greatest value in its correct order by using the swap() function when needed. 
+			
+		The second loop, running inside the first loop, should be running the full 9 times. Each time the second loop runs, it will determine if the the current index value of the array is holding a greater numerical
+		value than the next index value. If that is the case, then the swap() function is called and the addresses of both numerical values, which located in the array, are used as parameters.
+
+		If the swap() function is called, then the printValue() function is also called to show how the numerical values in the array are being changed.
+
+swap() function:
+
+	The swap() function takes two addresses as parameters. It does this so it can alter the values at those addresses, which will change the values inside the values[] array. 
+
+	The given addresses are the addresses of the array numerical values, which are proven to not be in the right ascending numerical order. 
+
+	A new integer variable is made to temperarely store the value located at the first given address. Then the numerical value located at the first address is given the numerical value located at the second address.
+	Finally, the second address is given the numerical values stored in the new variable. 
+
+	Altering the values at a given address will occur universely throughout the program. If the value is altered directly, the changes will only occur in the swap() function, not the whole program.
